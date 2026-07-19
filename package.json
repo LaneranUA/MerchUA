@@ -11,6 +11,8 @@
     "prisma:deploy": "prisma migrate deploy"
   },
   "dependencies": {
+    "@libsql/client": "0.14.0",
+    "@prisma/adapter-libsql": "6.19.3",
     "@prisma/client": "^6.0.0",
     "next": "^15.0.0",
     "react": "^19.0.0",
