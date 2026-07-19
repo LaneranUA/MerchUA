@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Vacancy {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  company        String?
+  description    String   // Markdown body from n8n, rendered safely on the site.
+  location       String   @default("Львів")
+  salaryMin      Int?
+  salaryMax      Int?
+  salaryCurrency String?  @default("UAH")
+  employmentType String?
+  category       String?
+  sourceChannel  String?
+  tgMessageId    String   @unique
+  tgMessageUrl   String?
+  blueskyUri     String?
+  isActive       Boolean  @default(true)
+  publishedAt    DateTime @default(now())
+  expiresAt      DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([isActive, publishedAt])
+  @@index([category])
+}

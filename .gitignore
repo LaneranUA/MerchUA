@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+.next
+node_modules
+*.db
+*.db-journal
+coverage
+dist
+out
+pm2.log
