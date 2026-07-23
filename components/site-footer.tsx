@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start md:items-center gap-stack-lg">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <Image alt="MerchUA" className="h-6 w-auto object-contain" height={24} src="/logo.png" width={24} />
+            <img alt="MerchUA" className="h-8 w-8 object-contain" src="/logo.png" />
             <span className="font-label-md text-label-md font-bold text-text-primary">MerchUA</span>
           </div>
           <p className="font-body-sm text-body-sm text-text-secondary max-w-xs">
