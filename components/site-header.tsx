@@ -6,7 +6,7 @@ export function SiteHeader() {
     <header className="sticky top-0 w-full z-50 bg-surface-container-lowest border-b border-surface-border">
       <div className="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <Link className="flex items-center gap-stack-sm" href="/">
-          <Image alt="MerchUA" className="h-8 w-auto object-contain" height={32} priority src="/logo.png" width={32} />
+          <img alt="MerchUA" className="h-8 w-8 object-contain" src="/logo.png" />
           <span className="hidden md:inline font-headline-sm text-headline-sm font-bold text-primary">MerchUA</span>
         </Link>
 
