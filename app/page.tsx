@@ -30,7 +30,7 @@ export default async function HomePage({ searchParams }: PageProps) {
       <Hero categoriesCount={categories.length} q={q} category={category} totalVacancies={vacancies.total} />
 
       <section className="py-section-padding px-margin-mobile max-w-container-max mx-auto" id="about">
-        <CategoryFilters activeCategory={category} categories={categories} q={q} />
+        <CategoryFilters />
 
         <p className="font-body-sm text-body-sm text-text-secondary mb-stack-lg" aria-live="polite">
           Знайдено вакансій: {vacancies.total}
