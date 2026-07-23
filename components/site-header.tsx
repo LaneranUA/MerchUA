@@ -19,7 +19,7 @@ export function SiteHeader() {
           </a>
           <a
             className="flex items-center text-primary-container hover:opacity-80 transition-opacity"
-            href="https://bsky.app"
+            href="https://bsky.app/profile/merchua.bsky.social"
             rel="noreferrer"
             target="_blank"
             aria-label="Bluesky"
@@ -30,7 +30,7 @@ export function SiteHeader() {
             className="hidden md:block bg-primary-container text-on-primary font-label-md text-label-md px-stack-lg py-2 rounded-full hover:opacity-90 transition-all"
             href="/#about"
           >
-            Для рекрутерів
+            
           </a>
         </nav>
       </div>
