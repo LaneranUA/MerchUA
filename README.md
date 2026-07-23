@@ -1,4 +1,4 @@
-# MerchUA
+# MerchUA sadsad
 
 SEO-friendly сайт вакансій для Львова на `Next.js App Router + Prisma + SQLite`, який приймає структуровані вакансії з `n8n` через API routes, віддає SSR/ISR сторінки і генерує `JobPosting` JSON-LD для Google Jobs.
 
