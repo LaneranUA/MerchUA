@@ -69,16 +69,20 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
   const blocks = parseBlocks(content);
 
   return (
-    <div className="markdown">
+    <div className="flex flex-col gap-stack-md font-body-md text-body-md text-text-primary whitespace-pre-line">
       {blocks.map((block, index) => {
         if (block.type === "heading") {
           const Tag = block.level === 1 ? "h2" : block.level === 2 ? "h3" : "h4";
-          return <Tag key={`${block.type}-${index}`}>{block.text}</Tag>;
+          return (
+            <Tag className="font-headline-sm text-headline-sm text-text-primary" key={`${block.type}-${index}`}>
+              {block.text}
+            </Tag>
+          );
         }
 
         if (block.type === "list") {
           return (
-            <ul key={`${block.type}-${index}`}>
+            <ul className="list-disc pl-5 flex flex-col gap-1" key={`${block.type}-${index}`}>
               {block.items.map((item, itemIndex) => (
                 <li key={`${item}-${itemIndex}`}>{item}</li>
               ))}

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { MarkdownContent } from "@/components/markdown-content";
-import { BriefcaseIcon, ClockIcon, MapPinIcon, TelegramIcon, WalletIcon } from "@/components/icons";
 import {
   buildVacancyPath,
   buildVacancyUrl,
@@ -92,85 +91,69 @@ export default async function VacancyPage({ params }: PageProps) {
   };
 
   return (
-    <section className="section">
-      <div className="container">
-        <script
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPosting) }}
-          type="application/ld+json"
-        />
+    <section className="max-w-3xl mx-auto px-margin-mobile py-section-padding">
+      <script dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPosting) }} type="application/ld+json" />
 
-        <div className="detail-backlink">
-          <Link href="/">← Назад до всіх вакансій</Link>
+      <Link
+        className="inline-flex items-center gap-1 text-primary font-label-md text-label-md mb-stack-lg hover:underline"
+        href="/"
+      >
+        <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+        Усі вакансії
+      </Link>
+
+      <div className="bg-surface-container-lowest border border-surface-border rounded-xl p-stack-lg md:p-8">
+        <div className="flex justify-between items-start mb-4">
+          <span className="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider">
+            {vacancy.company ?? "Компанія не вказана"}
+          </span>
+          {vacancy.sourceChannel ? (
+            <div className="flex items-center gap-1 px-2 py-1 bg-secondary-container/30 text-primary-container rounded-md text-[10px] font-bold">
+              <span className="material-symbols-outlined text-[14px]">send</span>
+              {vacancy.sourceChannel}
+            </div>
+          ) : null}
         </div>
 
-        <div className="vacancy-detail">
-          <article className="detail-card">
-            <p className="eyebrow">Окрема SEO-сторінка вакансії</p>
-            <h1>{vacancy.title}</h1>
+        <h1 className="font-headline-lg text-headline-lg text-text-primary mb-stack-md">{vacancy.title}</h1>
 
-            <div className="detail-meta">
-              <span>
-                <BriefcaseIcon className="meta-icon" />
-                {vacancy.company ?? "Компанія не вказана"}
-              </span>
-              <span>
-                <MapPinIcon className="meta-icon" />
-                {vacancy.location}
-              </span>
-              <span>
-                <ClockIcon className="meta-icon" />
-                {employmentType ?? "Формат не вказано"}
-              </span>
-              {salary ? (
-                <span className="salary-value">
-                  <WalletIcon className="meta-icon" />
-                  {salary}
-                </span>
-              ) : null}
+        <div className="flex flex-wrap gap-stack-lg mb-stack-lg">
+          <div className="flex items-center text-text-secondary font-body-md text-body-md">
+            <span className="material-symbols-outlined mr-2 text-outline">location_on</span>
+            {vacancy.location}
+          </div>
+          {employmentType ? (
+            <div className="flex items-center text-text-secondary font-body-md text-body-md">
+              <span className="material-symbols-outlined mr-2 text-outline">schedule</span>
+              {employmentType}
             </div>
+          ) : null}
+        </div>
 
-            <MarkdownContent content={vacancy.description} />
-          </article>
+        <p className="font-headline-md text-headline-md text-salary-green mb-stack-lg">
+          {salary ?? "За домовленістю"}
+        </p>
 
-          <aside className="detail-sidebar">
-            <div className="detail-panel">
-              <h2>Коротко</h2>
-              <dl className="detail-facts">
-                <div>
-                  <dt>Опубліковано</dt>
-                  <dd>{formatDate(vacancy.publishedAt)}</dd>
-                </div>
-                {vacancy.expiresAt ? (
-                  <div>
-                    <dt>Актуально до</dt>
-                    <dd>{formatDate(vacancy.expiresAt)}</dd>
-                  </div>
-                ) : null}
-                {vacancy.category ? (
-                  <div>
-                    <dt>Категорія</dt>
-                    <dd>{vacancy.category}</dd>
-                  </div>
-                ) : null}
-                {vacancy.sourceChannel ? (
-                  <div>
-                    <dt>Джерело</dt>
-                    <dd className="inline-icon">
-                      <TelegramIcon className="meta-icon" />
-                      {vacancy.sourceChannel}
-                    </dd>
-                  </div>
-                ) : null}
-              </dl>
-            </div>
+        <div className="border-t border-surface-border pt-stack-lg">
+          <MarkdownContent content={vacancy.description} />
+        </div>
 
-            {vacancy.blueskyUri ? (
-              <div className="detail-panel">
-                <h2>Bluesky</h2>
-                <p className="small-copy">{vacancy.blueskyUri}</p>
-              </div>
-            ) : null}
-          </aside>
+        <div className="mt-stack-lg pt-stack-lg border-t border-surface-border flex flex-wrap items-center gap-stack-md">
+          <span className="font-body-sm text-body-sm text-outline">Опубліковано {formatDate(vacancy.publishedAt)}</span>
+          {vacancy.expiresAt ? (
+            <span className="font-body-sm text-body-sm text-outline">Актуально до {formatDate(vacancy.expiresAt)}</span>
+          ) : null}
+          {vacancy.blueskyUri ? (
+            <a
+              className="inline-flex items-center gap-1 text-primary-container font-label-md text-label-md hover:underline"
+              href={vacancy.blueskyUri}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="material-symbols-outlined text-[18px]">cloud</span>
+              Дивитись у Bluesky
+            </a>
+          ) : null}
         </div>
       </div>
     </section>
