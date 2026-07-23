@@ -30,7 +30,7 @@ export function SiteHeader() {
             className="hidden md:block bg-primary-container text-on-primary font-label-md text-label-md px-stack-lg py-2 rounded-full hover:opacity-90 transition-all"
             href="/#about"
           >
-            
+            До вакансій
           </a>
         </nav>
       </div>
