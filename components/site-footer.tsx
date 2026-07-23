@@ -34,7 +34,7 @@ export function SiteFooter() {
             <div className="flex flex-col gap-2">
               <a
                 className="flex items-center gap-2 font-body-sm text-body-sm text-primary-container font-semibold hover:opacity-80"
-                href="https://t.me"
+                href="https://t.me/merchUA"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -43,7 +43,7 @@ export function SiteFooter() {
               </a>
               <a
                 className="flex items-center gap-2 font-body-sm text-body-sm text-primary-container font-semibold hover:opacity-80"
-                href="https://bsky.app"
+                href="https://bsky.app/profile/merchua.bsky.social"
                 rel="noreferrer"
                 target="_blank"
               >
